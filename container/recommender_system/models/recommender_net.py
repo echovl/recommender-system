@@ -90,6 +90,7 @@ def make_recommendation(model_knn, data, mapper, product, n_recommendations):
 
     return candidates
 
+# TODO: We need to create a model for each Store!
 class RecommenderNet:
     model = None
     data = None

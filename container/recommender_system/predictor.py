@@ -36,14 +36,13 @@ def transformation():
     just means one prediction per line, since there's a single column.
     """
     try :
-        # Create JSON response
-
+        # Get the target products
         products = flask.request.json["products"]
 
-        print("Request body", flask.request.json)
-        print("Product 1:" ,products[0])
-        
+        # TODO: we need to get all the candidates for the target products        
         recommended_products = RecommenderNet.predict(products[0])
+
+        print("Candidates for product 1 :", recommended_products)
 
         return flask.jsonify(recommended_products)
 
