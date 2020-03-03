@@ -29,6 +29,15 @@ def ping():
     status = 200 if health else 404
     return flask.Response(response='Ok\n', status=status, mimetype='application/json')
 
+@app.route('/train', methods=['POST'])
+def train():
+    # Training should happen here
+
+    return flask.jsonify({
+        "error": False,
+        "message": "It is all good man"
+    })
+
 @app.route('/invocations', methods=['POST'])
 def transformation():
     """Do an inference on a single batch of data. In this sample server, we take data as CSV, convert
@@ -52,4 +61,3 @@ def transformation():
             "error": "true",
             "message": "Cannot recommend products."
         })
-    
